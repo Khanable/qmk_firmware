@@ -9,6 +9,10 @@ enum sofle_layers {
     _FKEYS,
 };
 
+enum custom_keycodes {
+    KC_UNSFT_QUOTE = SAFE_RANGE
+};
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -16,24 +20,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,
   KC_NO,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_NO,
   KC_NO,   LT(_FKEYS, KC_A),   LT(_NUMBERS, KC_S),    LT(_SYMBOLS, KC_D),    LT(_SLETTERS, KC_F),    KC_G,                     KC_H,    LT(_SLETTERS, KC_J),    LT(_SYMBOLS, KC_K),    LT(_NUMBERS, KC_L), LT(_FKEYS, KC_SCLN),  KC_NO,
-  KC_NO,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_NO,     KC_NO,KC_N,    KC_M, KC_COMMA,  KC_QUOTE, KC_SLSH,  KC_NO,
+  KC_NO,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_NO,     KC_NO,KC_N,    KC_M, KC_COMMA,  KC_DOT, KC_SLSH,  KC_NO,
                  KC_NO,KC_NO,KC_LGUI, LALT_T(KC_ESC), LCTL_T(KC_BSPC),      RCTL_T(KC_ENTER),  RALT_T(KC_SPC), KC_RGUI, KC_NO, KC_NO
 ),
 
 [_GAME] = LAYOUT(
   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,
   KC_NO,   KC_T,   KC_Q,    KC_W,    KC_E,    KC_R,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_NO,
-  KC_NO,   KC_LCTL,   KC_A,    KC_S,    KC_D,    KC_F,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_NO,
+  KC_NO,   KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_NO,
   KC_NO,  KC_G,   KC_Z,    KC_X,    KC_C,    KC_V, KC_NO,     KC_NO,KC_N,    KC_M, KC_COMMA,  KC_QUOTE, KC_SLSH,  KC_NO,
-                 KC_NO,KC_NO,KC_LALT, KC_LSFT, KC_SPC,      KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO
+                 KC_NO,KC_NO,KC_LALT, KC_SPC, KC_LCTL,      KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO
 ),
 
 [_SLETTERS] = LAYOUT(
   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,
-  KC_NO,   S(KC_Q),   S(KC_W),    S(KC_E),    S(KC_R),    S(KC_T),                     S(KC_Y),    S(KC_U),    S(KC_I),    S(KC_O),    S(KC_P),  KC_NO,
-  KC_NO,   S(KC_A),   S(KC_S),    S(KC_D),    S(KC_F),    S(KC_G),                     S(KC_H),    S(KC_J),    S(KC_K),    S(KC_L), S(KC_SCLN),  KC_NO,
-  KC_NO,  S(KC_Z),   S(KC_X),    S(KC_C),    S(KC_V),    S(KC_B), KC_NO,     KC_NO,S(KC_N),    S(KC_M), KC_DOT,  S(KC_QUOTE), S(KC_SLSH),  KC_NO,
-                 KC_NO,KC_NO,KC_LGUI, LALT_T(S(KC_TAB)), LCTL_T(KC_BSPC),      RCTL_T(S(KC_ENTER)),  RALT_T(KC_SPC), KC_RGUI, KC_NO, KC_NO
+  KC_NO,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_NO,
+  KC_NO,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_NO,
+  KC_NO,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_NO,     KC_NO,KC_N,    KC_M, KC_UNSFT_QUOTE, KC_QUOTE, KC_SLSH,  KC_NO,
+                 KC_NO,KC_NO,KC_LGUI, LALT_T(KC_TAB), LCTL_T(KC_BSPC),      RCTL_T(KC_ENTER),  RALT_T(KC_SPC), KC_RGUI, KC_NO, KC_NO
 ),
 
 [_SYMBOLS] = LAYOUT(
@@ -70,15 +74,17 @@ enum combo_events {
   GAME_LAYER_ESC,
   GAME_LAYER_B,
   GAME_LAYER_ENT,
+  LETTERS_LAYER_ENT,
 };
 
 const uint16_t PROGMEM combo_tg_game_layer[] = {KC_M, KC_COMMA, KC_QUOTE, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM combo_game_layer_osl_numbers[] = {KC_A, KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM combo_game_layer_osl_fkeys[] = {KC_LCTL, KC_A, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_game_layer_osl_fkeys[] = {KC_T, KC_Q, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_game_layer_tab[] = {KC_Q, KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_game_layer_esc[] = {KC_T, KC_Q, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_game_layer_b[] = {KC_Z, KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_game_layer_ent[] = {KC_G, KC_Z, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_game_layer_esc[] = {KC_LSFT, KC_A, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_game_layer_b[] = {KC_G, KC_Z, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_game_layer_ent[] = {KC_Z, KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_letters_layer_ent[] = {KC_X, KC_C, KC_V, COMBO_END};
 
 combo_t key_combos[] = {
   [TG_GAME_LAYER] = COMBO(combo_tg_game_layer, TG(_GAME)),
@@ -88,6 +94,7 @@ combo_t key_combos[] = {
   [GAME_LAYER_ESC] = COMBO(combo_game_layer_esc, KC_ESC),
   [GAME_LAYER_B] = COMBO(combo_game_layer_b, KC_B),
   [GAME_LAYER_ENT] = COMBO(combo_game_layer_ent, KC_ENTER),
+  [LETTERS_LAYER_ENT] = COMBO(combo_letters_layer_ent, KC_ENTER),
 };
 
 
@@ -98,7 +105,19 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         return true;
     }
 
-    if ( layer_state_is(_GAME) ) {
+    if (layer_state_is(_LETTERS) && combo_index == LETTERS_LAYER_ENT) {
+        return true;
+    }
+
+    if ( layer_state_is(_GAME) && (
+        combo_index == GAME_LAYER_ENT
+        || combo_index == GAME_LAYER_B
+        || combo_index == GAME_LAYER_ESC
+        || combo_index == GAME_LAYER_TAB
+        || combo_index == GAME_LAYER_OSL_FKEYS
+        || combo_index == GAME_LAYER_OSL_NUMBERS
+        )
+    ) {
         return true;
     }
 
@@ -108,14 +127,14 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 
 
 #ifdef OLED_ENABLE
-static void print_right(void) {
-    oled_write_P(PSTR("\n\n"), false);
-    oled_write_P(PSTR("\n\n\n\n"), false);
-
-    oled_write_ln_P(PSTR("  WPM"), false);
-    oled_write_P(PSTR("  "), false);
-    oled_write_ln(get_u8_str(get_current_wpm(), '0'), false);
-}
+//static void print_right(void) {
+//    oled_write_P(PSTR("\n\n"), false);
+//    oled_write_P(PSTR("\n\n\n\n"), false);
+//
+//    oled_write_ln_P(PSTR("  WPM"), false);
+//    oled_write_P(PSTR("  "), false);
+//    oled_write_ln(get_u8_str(get_current_wpm(), '0'), false);
+//}
 
 static void print_left(void) {
     oled_write_P(PSTR("\n\n"), false);
@@ -154,12 +173,29 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 bool oled_task_user(void) {
-    if (is_keyboard_master()) {
-        print_left();
-    } else {
-        print_right();
-    }
+    print_left();
     return false;
 }
 
 #endif
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    uint8_t mod_state = get_mods();
+
+    if (layer_state_is(_SLETTERS) && !(mod_state & MOD_BIT(KC_LSFT)) ){
+        add_mods(MOD_BIT(KC_LSFT));
+    }
+    else if (!layer_state_is(_SLETTERS) && (mod_state & MOD_BIT(KC_LSFT))) {
+        del_mods(MOD_BIT(KC_LSFT));
+    }
+
+    switch (keycode) {
+        case KC_UNSFT_QUOTE:
+            if (record->event.pressed) {
+                tap_code(KC_QUOTE);
+            }
+        return false;
+    }
+
+    return true;
+}
