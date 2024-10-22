@@ -28,8 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,
   KC_NO,   KC_T,   KC_Q,    KC_W,    KC_E,    KC_R,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_NO,
   KC_NO,   KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_NO,
-  KC_NO,  KC_G,   KC_Z,    KC_X,    KC_C,    KC_V, KC_NO,     KC_NO,KC_N,    KC_M, KC_COMMA,  KC_QUOTE, KC_SLSH,  KC_NO,
-                 KC_NO,KC_NO,KC_LALT, KC_SPC, KC_LCTL,      KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO
+  KC_NO,  KC_G,   KC_Z,    KC_X,    KC_C,    KC_V, KC_NO,     KC_NO,KC_N,    KC_M, KC_COMMA,  KC_DOT, KC_SLSH,  KC_NO,
+                 KC_NO,KC_NO,KC_LCTL, KC_SPC, KC_LALT,      KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO
 ),
 
 [_SLETTERS] = LAYOUT(
@@ -77,7 +77,7 @@ enum combo_events {
   LETTERS_LAYER_ENT,
 };
 
-const uint16_t PROGMEM combo_tg_game_layer[] = {KC_M, KC_COMMA, KC_QUOTE, KC_SLSH, COMBO_END};
+const uint16_t PROGMEM combo_tg_game_layer[] = {KC_M, KC_COMMA, KC_DOT, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM combo_game_layer_osl_numbers[] = {KC_A, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM combo_game_layer_osl_fkeys[] = {KC_T, KC_Q, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_game_layer_tab[] = {KC_Q, KC_W, KC_E, COMBO_END};
@@ -96,7 +96,6 @@ combo_t key_combos[] = {
   [GAME_LAYER_ENT] = COMBO(combo_game_layer_ent, KC_ENTER),
   [LETTERS_LAYER_ENT] = COMBO(combo_letters_layer_ent, KC_ENTER),
 };
-
 
 
 
