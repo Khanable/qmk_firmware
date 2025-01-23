@@ -9,22 +9,22 @@
  */
 
 /* disable debug print */
-//#define NO_DEBUG
+// #define NO_DEBUG
 
 /* disable print */
-//#define NO_PRINT
+// #define NO_PRINT
 
 /* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
+// #define NO_ACTION_LAYER
+// #define NO_ACTION_TAPPING
+// #define NO_ACTION_ONESHOT
 
-#define MATRIX_ROW_PINS { GP6, GP7, GP0 }
-#define MATRIX_COL_PINS { GP29, GP28, GP27, GP26 }
+#define MATRIX_ROW_PINS {GP6, GP7, GP0}
+#define MATRIX_COL_PINS {GP29, GP28, GP27, GP26}
 #define DIODE_DIRECTION COL2ROW
 
-#define ENCODERS_PAD_A { GP1 }
-#define ENCODERS_PAD_B { GP2 }
+#define ENCODER_A_PINS {GP1}
+#define ENCODER_B_PINS {GP2}
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
